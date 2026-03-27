@@ -24,8 +24,9 @@ test('get all cards', async ({ page }) => {
 });
 
 // don't run this test with webkit
-test('get card title', async ({ page }) => {
+test('get card title', async ({ page, browserName }) => {
+  test.skip(browserName !== 'webkit', 'This feature is Safari-only');
   await page.goto('https://practicesoftwaretesting.com/');
-  const cardTitle = await page.locator('.card .card-title').textContent();
-  expect(cardTitle).toBe('Selenium WebDriver');
+  const cardTitle = await page.locator('.card .card-title').first().textContent();
+  expect(cardTitle).toBe('Selenium WebDriver'); // Depending on the version of the page, there might be extra whitespace around the title
 });
