@@ -71,6 +71,8 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
+  // webServer is disabled because this project does not define `npm run start`.
+  // If you add a local server script later, restore this block.
   // webServer: {
   //   command: 'npm run start',
   //   url: 'http://localhost:3000',
